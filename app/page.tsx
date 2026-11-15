@@ -8,7 +8,7 @@ const phases=[
 ["Admin functionality",["Admin verification","Remove student","Admin PDF upload flow","Duplicate PDF upload","Invalid admin input","Admin command access","Admin feedback","Admin error handling","Paid-student lookup","Student record privacy"]],
 ["Automatic synchronisation & reliability",["Initial sync","Repeat sync","Drive API/network failure","MongoDB unavailable","Telegram API timeout","Partial Drive outage","Sync duration","Sync counts reconcile","Deleted/stale file policy","Sync scheduling","Process recovery"]],
 ["Final verification, GitHub & deployment",["Configuration/secrets safe","Requirements install","Clean startup","Git branch/PR correct","Production environment configured","Hosted bot responds","Restart behavior","Logs accessible","End-to-end student journey","Final tester notes"]]
-];
+] as const;
 const tests=phases.flatMap((p,pi)=>p[1].map((title,i)=>({id:`${pi+1}-${i}`,phase:p[0],title,expected:"The feature behaves as intended, returns the correct data/result, and gives a clear response without crashing.",watch:"Look for missing/incorrect data, wrong permissions, stale state, timeout, traceback, duplicate entries, or misleading success."})));
 export default function Home(){
  const [tester,S]=useState("");const [date,D]=useState(new Date().toISOString().slice(0,10));const [environment,E]=useState("Local / Windows");const [branch,B]=useState("");const [commit,C]=useState("");const [checks,K]=useState({});const [feedback,F]=useState("");const [privateNotes,N]=useState("");const [busy,U]=useState(false);const [msg,M]=useState("");const [mode,Q]=useState(false);const [password,P]=useState("");const [logged,L]=useState(false);const [reports,R]=useState([]);
